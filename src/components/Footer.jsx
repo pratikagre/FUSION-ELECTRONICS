@@ -31,10 +31,10 @@ const helpLinks = [
 ];
 
 const socialLinks = [
-  { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/hoangsonww' },
-  { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/hoangsonw/' },
-  { icon: <LanguageIcon />, label: 'Portfolio', href: 'https://sonnguyenhoang.com/' },
-  { icon: <EmailIcon />, label: 'Email', href: 'mailto:hoangson091104@gmail.com' },
+  { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com/pratikagre' },
+  { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/pratik-agre-74b18a325/' },
+ 
+  { icon: <EmailIcon />, label: 'Email', href: 'agrepratik150@gmail.com' },
 ];
 
 const policyLinks = [
@@ -132,7 +132,7 @@ function Footer() {
                   to={link.to}
                   color="inherit"
                   underline="none"
-                  sx={{ color: 'rgba(226,232,240,0.78)', '&:hover': { color: '#fff' } }}
+                  sx={{ color: 'rgba(226,232,240,0.78)', '&:hover': { color: '#757373' } }}
                 >
                   {link.label}
                 </MuiLink>
