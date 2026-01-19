@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { toINR, formatINR } from "../utils/currency";
+
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button, Typography, Divider, Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +43,11 @@ function ShoppingCart({ cart, setCart }) {
                   <ListItemAvatar>
                     <Avatar src={item.image} alt={item.name} />
                   </ListItemAvatar>
-                  <ListItemText primary={item.name} secondary={`$${item.price.toFixed(2)}`} />
+                  <ListItemText
+  primary={item.name}
+  secondary={`${formatINR(toINR(item.price))}`}
+/>
+
                 </ListItem>
                 <Divider variant="inset" component="li" />
               </React.Fragment>

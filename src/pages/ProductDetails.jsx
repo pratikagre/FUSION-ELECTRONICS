@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { toINR, formatINR } from "../utils/currency";
+
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Alert,
@@ -294,7 +296,8 @@ function ProductDetails({ addToCart }) {
               Category: {formatCategory(product.category)}
             </Typography>
             <Typography variant="h6" color="primary" gutterBottom>
-              ${product.price}
+             {formatINR(toINR(product.price))}
+
             </Typography>
             <Typography variant="body1" gutterBottom>
               {product.description}
@@ -354,7 +357,8 @@ function ProductDetails({ addToCart }) {
                         {rec.name}
                       </Typography>
                       <Typography variant="h6" color="primary">
-                        ${rec.price}
+                       {formatINR(toINR(rec.price))}
+
                       </Typography>
                     </CardContent>
                   </CardActionArea>

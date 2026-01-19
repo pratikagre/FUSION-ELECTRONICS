@@ -1,3 +1,4 @@
+import { toINR, formatINR } from "../utils/currency";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Paper } from '@mui/material';
@@ -50,7 +51,8 @@ function SearchResults({ results, onResultClick, setSearchResults, variant = 'po
                   secondary={
                     <React.Fragment>
                       <Typography sx={{ display: 'inline' }} component="span" variant="body2" color="text.primary">
-                        ${product.price}
+                        {formatINR(toINR(product.price))}
+
                       </Typography>
                       {' - ' + product.description.slice(0, 50) + '...'}
                     </React.Fragment>

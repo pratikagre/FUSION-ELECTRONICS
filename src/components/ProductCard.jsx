@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { toINR, formatINR } from "../utils/currency";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -94,7 +95,8 @@ export default function ProductCard({ product, addToCart }) {
         </Typography>
         <Stack direction="row" spacing={1} alignItems="center" sx={{ mt: 1.5 }}>
           <Typography variant="h6" color="primary" sx={{ fontWeight: 700 }}>
-            ${product.price.toFixed(2)}
+           {formatINR(toINR(product.price))}
+
           </Typography>
           {ratingValue !== null && (
             <Stack direction="row" spacing={0.5} alignItems="center">

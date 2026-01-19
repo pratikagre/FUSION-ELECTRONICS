@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toINR, formatINR } from "../utils/currency";
+
 import { useNavigate } from 'react-router-dom';
 import CheckoutForm from '../components/CheckoutForm';
 import {
@@ -151,7 +153,8 @@ function Checkout({ cartItems = [], onOrderComplete }) {
               Checkout
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              You have {itemsToShow.length} item{itemsToShow.length !== 1 ? 's' : ''} selected. Total due ${total.toFixed(2)}.
+              You have {itemsToShow.length} item{itemsToShow.length !== 1 ? 's' : ''} selected. Total due {formatINR(toINR(total.price))}
+.
             </Typography>
           </Box>
         </Stack>
@@ -194,7 +197,8 @@ function Checkout({ cartItems = [], onOrderComplete }) {
                       <ListItemAvatar>
                         <Avatar src={item.image} alt={item.name} variant="rounded" />
                       </ListItemAvatar>
-                      <ListItemText primary={item.name} secondary={`$${(item.price || 0).toFixed(2)}`} />
+                      <ListItemText primary={item.name} secondary={`${formatINR(toINR(item.price || 0))}`}
+ />
                     </ListItem>
                   );
                 })}

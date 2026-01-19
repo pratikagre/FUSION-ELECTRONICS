@@ -1,4 +1,6 @@
 import React from 'react';
+import { toINR, formatINR } from "../utils/currency";
+
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Typography, Box, Paper, Button, Stack, Divider, Chip, List, ListItem, ListItemText } from '@mui/material';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -90,14 +92,16 @@ function OrderSuccess() {
             <List dense>
               {items.map(item => (
                 <ListItem key={`${item.productId}-${item.name}`} disableGutters sx={{ py: 0.5 }}>
-                  <ListItemText primary={item.name} secondary={`Qty ${item.quantity} • $${Number(item.price || 0).toFixed(2)}`} />
+                  <ListItemText primary={item.name} secondary={`Qty ${item.quantity} • ${formatINR(toINR(Number(item.price || 0)))}`}
+ />
                 </ListItem>
               ))}
             </List>
             {typeof total === 'number' && <Divider sx={{ my: 2 }} />}
             {typeof total === 'number' && (
               <Typography variant="subtitle2" fontWeight={600}>
-                Order total: ${total.toFixed(2)}
+                Order total: {formatINR(toINR(total.price))}
+
               </Typography>
             )}
           </Box>

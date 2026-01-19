@@ -1,4 +1,6 @@
 import React from 'react';
+import { toINR, formatINR } from "../utils/currency";
+
 import { Container, List, ListItem, ListItemText, ListItemAvatar, Avatar, Button, Typography, Divider, Paper, Stack, Box, Chip } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
@@ -70,7 +72,11 @@ function Cart({ cart, setCart }) {
                   <ListItemAvatar>
                     <Avatar src={item.image} alt={item.name} variant="rounded" />
                   </ListItemAvatar>
-                  <ListItemText primary={item.name} secondary={`$${typeof item.price === 'number' ? item.price.toFixed(2) : 'Price not available'}`} />
+                  <ListItemText primary={item.name} secondary={
+  typeof item.price === "number"
+    ? `${formatINR(toINR(item.price))}`
+    : "Price not available"
+}/>
                 </ListItem>
                 <Divider variant="inset" component="li" />
               </React.Fragment>
